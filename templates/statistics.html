@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+
+{% block title %}Thống kê{% endblock %}
+
+{% block content %}
+<div class="header-container">
+    <h1 class="page-title">Thống kê mô hình</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <h5 class="card-title">Tổng số mô hình</h5>
+                <div class="d-flex align-items-center">
+                    <div class="display-4 me-3">{{ total_models }}</div>
+                    <i class="fas fa-cubes fa-3x text-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <h5 class="card-title">Độ chính xác trung bình</h5>
+                <div class="d-flex align-items-center">
+                    <div class="display-4 me-3">{{ (avg_accuracy * 100)|round(2) }}%</div>
+                    <i class="fas fa-bullseye fa-3x text-success"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <h5 class="card-title">MAE trung bình</h5>
+                <div class="d-flex align-items-center">
+                    <div class="display-4 me-3">{{ avg_mae|round(4) }}</div>
+                    <i class="fas fa-chart-line fa-3x text-warning"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card stats-card">
+            <div class="card-body">
+                <h5 class="card-title">MSE trung bình</h5>
+                <div class="d-flex align-items-center">
+                    <div class="display-4 me-3">{{ avg_mse|round(4) }}</div>
+                    <i class="fas fa-chart-area fa-3x text-danger"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-bar"></i> Phân bố theo loại mô hình
+            </div>
+            <div class="card-body">
+                <canvas id="modelTypeChart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-pie"></i> Phân bố theo độ chính xác
+            </div>
+            <div class="card-body">
+                <canvas id="accuracyDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-chart-line"></i> So sánh các chỉ số
+            </div>
+            <div class="card-body">
+                <canvas id="metricsComparisonChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-table"></i> Bảng so sánh
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tên mô hình</th>
+                                <th>Loại</th>
+                                <th>Độ chính xác</th>
+                                <th>MAE</th>
+                                <th>MSE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparisonTableBody">
+                            <!-- Dữ liệu sẽ được thêm vào bằng JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Dữ liệu từ Flask
+        const modelNames = {{ model_names|safe }};
+        const accuracies = {{ accuracies|safe }};
+        const maes = {{ maes|safe }};
+        const mses = {{ mses|safe }};
+        
+        // Biểu đồ phân bố theo loại mô hình
+        const modelTypeCtx = document.getElementById('modelTypeChart').getContext('2d');
+        const modelTypeChart = new Chart(modelTypeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [{% for type, count in model_types.items() %}"{{ type }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Số lượng',
+                    data: [{% for type, count in model_types.items() %}{{ count }}{% if not loop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: [
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(231, 76, 60, 0.7)',
+                        'rgba(241, 196, 15, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(46, 204, 113, 1)',
+                        'rgba(231, 76, 60, 1)',
+                        'rgba(241, 196, 15, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Phân bố theo loại mô hình'
+                    }
+                }
+            }
+        });
+        
+        // Biểu đồ phân bố theo độ chính xác
+        const accuracyDistributionCtx = document.getElementById('accuracyDistributionChart').getContext('2d');
+        
+        const accuracyDistributionChart = new Chart(accuracyDistributionCtx, {
+            type: 'pie',
+            data: {
+                labels: [{% for range, count in accuracy_ranges.items() %}"{{ range }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    data: [{% for range, count in accuracy_ranges.items() %}{{ count }}{% if not loop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: [
+                        'rgba(46, 204, 113, 0.7)',
+                        'rgba(52, 152, 219, 0.7)',
+                        'rgba(241, 196, 15, 0.7)',
+                        'rgba(230, 126, 34, 0.7)',
+                        'rgba(231, 76, 60, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(46, 204, 113, 1)',
+                        'rgba(52, 152, 219, 1)',
+                        'rgba(241, 196, 15, 1)',
+                        'rgba(230, 126, 34, 1)',
+                        'rgba(231, 76, 60, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Phân bố độ chính xác'
+                    }
+                }
+            }
+        });
+        
+        // Biểu đồ so sánh các chỉ số
+        const metricsComparisonCtx = document.getElementById('metricsComparisonChart').getContext('2d');
+        const metricsComparisonChart = new Chart(metricsComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: modelNames,
+                datasets: [
+                    {
+                        label: 'Độ chính xác',
+                        data: accuracies.map(val => (parseFloat(val) * 100).toFixed(2)),
+                        backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'MAE',
+                        data: maes.map(val => parseFloat(val).toFixed(4)),
+                        backgroundColor: 'rgba(241, 196, 15, 0.7)',
+                        borderColor: 'rgba(241, 196, 15, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y1'
+                    },
+                    {
+                        label: 'MSE',
+                        data: mses.map(val => parseFloat(val).toFixed(4)),
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Độ chính xác (%)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'MAE/MSE'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Mô hình'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'So sánh các chỉ số giữa các mô hình'
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+        
+        // Tạo bảng so sánh
+        const tableBody = document.getElementById('comparisonTableBody');
+        
+        if (modelNames && modelNames.length > 0) {
+            for (let i = 0; i < modelNames.length; i++) {
+                const row = document.createElement('tr');
+                
+                const nameCell = document.createElement('td');
+                nameCell.textContent = modelNames[i];
+                row.appendChild(nameCell);
+                
+                const typeCell = document.createElement('td');
+                // Giả sử loại mô hình, có thể cần điều chỉnh
+                typeCell.textContent = 'HumanDetection';
+                row.appendChild(typeCell);
+                
+                const accuracyCell = document.createElement('td');
+                accuracyCell.textContent = `${(parseFloat(accuracies[i]) * 100).toFixed(2)}%`;
+                row.appendChild(accuracyCell);
+                
+                const maeCell = document.createElement('td');
+                maeCell.textContent = parseFloat(maes[i]).toFixed(4);
+                row.appendChild(maeCell);
+                
+                const mseCell = document.createElement('td');
+                mseCell.textContent = parseFloat(mses[i]).toFixed(4);
+                row.appendChild(mseCell);
+                
+                tableBody.appendChild(row);
+            }
+        } else {
+            const emptyRow = document.createElement('tr');
+            const emptyCell = document.createElement('td');
+            emptyCell.colSpan = 5;
+            emptyCell.textContent = 'Không có dữ liệu';
+            emptyCell.className = 'text-center';
+            emptyRow.appendChild(emptyCell);
+            tableBody.appendChild(emptyRow);
+        }
+    });
+</script>
+{% endblock %}
