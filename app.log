@@ -4588,3 +4588,327 @@
 2025-04-23 10:51:00,348 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
 2025-04-23 10:51:00,356 - werkzeug - WARNING -  * Debugger is active!
 2025-04-23 10:51:00,361 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:02:54,738 - root - INFO - Retrieved 3 templates with 3 labels and 6 boxes
+2025-04-23 11:02:54,936 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:02:54] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:02:55,011 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:02:55] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:02:55,058 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:02:55] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:04:33,910 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:04:33,911 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:04:34,393 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:04:35,192 - root - INFO - Database connection pool created successfully
+2025-04-23 11:04:35,197 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:04:35,197 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:04:35,209 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:04:35,218 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:05:08,777 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:05:08,778 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:05:09,395 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:05:10,290 - root - INFO - Database connection pool created successfully
+2025-04-23 11:05:10,296 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:10,297 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:10,312 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:05:10,318 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:05:37,667 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:05:37,668 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:05:38,490 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:05:39,065 - root - INFO - Database connection pool created successfully
+2025-04-23 11:05:39,070 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:39,071 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:39,082 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:05:39,087 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:05:43,878 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\bounding_box.py', reloading
+2025-04-23 11:05:43,890 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\bounding_box.py', reloading
+2025-04-23 11:05:44,194 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:05:44,770 - root - INFO - Database connection pool created successfully
+2025-04-23 11:05:44,775 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:44,775 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:05:44,784 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:05:44,788 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:06:03,834 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:06:03,840 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:06:03,841 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:06:03,936 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:06:04,642 - root - INFO - Database connection pool created successfully
+2025-04-23 11:06:04,648 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:06:04,648 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:06:04,661 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:06:04,667 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:06:38,658 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:06:38,667 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:06:38,668 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:06:38,669 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:06:38,841 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:06:39,564 - root - INFO - Database connection pool created successfully
+2025-04-23 11:06:39,570 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:06:39,570 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:06:39,583 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:06:39,589 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:06:41,119 - root - INFO - Retrieved 3 templates with all labels and bounding boxes
+2025-04-23 11:06:41,141 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:06:41] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:06:41,192 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:06:41] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:06:41,261 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:06:41] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:07:51,028 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:07:51,029 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:07:51,849 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:07:52,352 - root - INFO - Database connection pool created successfully
+2025-04-23 11:07:52,356 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:07:52,356 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:07:52,365 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:07:52,370 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:08:01,128 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:08:01,138 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:08:01,139 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:08:01,498 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:08:02,007 - root - INFO - Database connection pool created successfully
+2025-04-23 11:08:02,010 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:08:02,011 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:08:02,019 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:08:02,024 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:08:17,833 - root - INFO - Retrieved 3 templates with all labels and bounding boxes
+2025-04-23 11:08:17,849 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:08:17] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:08:17,923 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:08:17] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:08:17,968 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:08:17] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:10:38,556 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:10:38,557 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:10:39,475 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:10:40,000 - root - INFO - Database connection pool created successfully
+2025-04-23 11:10:40,004 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:10:40,004 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:10:40,013 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:10:40,017 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:10:48,055 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:10:48,198 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:10:48,891 - root - INFO - Database connection pool created successfully
+2025-04-23 11:10:48,896 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:10:48,896 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:10:48,909 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:10:48,915 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:10:59,101 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:10:59,102 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:10:59,102 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:11:00,039 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:11:00,704 - root - INFO - Database connection pool created successfully
+2025-04-23 11:11:00,709 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:00,709 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:00,720 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:11:00,725 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:11:36,646 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:11:36,647 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:11:36,898 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:11:37,624 - root - INFO - Database connection pool created successfully
+2025-04-23 11:11:37,630 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:37,631 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:37,644 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:11:37,651 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:11:37,697 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:11:37,699 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:11:38,757 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:11:39,352 - root - INFO - Database connection pool created successfully
+2025-04-23 11:11:39,357 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:39,357 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:11:39,369 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:11:39,374 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:12:29,306 - root - INFO - Retrieved 3 templates with labels
+2025-04-23 11:12:29,307 - root - INFO - Retrieved 3 bounding boxes for template 1
+2025-04-23 11:12:29,309 - root - INFO - Retrieved 2 bounding boxes for template 2
+2025-04-23 11:12:29,310 - root - INFO - Retrieved 1 bounding boxes for template 3
+2025-04-23 11:12:29,357 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:12:29] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:12:29,404 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:12:29] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:12:29,470 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:12:29] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:13:03,067 - root - INFO - Retrieved 3 templates with labels
+2025-04-23 11:13:03,068 - root - INFO - Retrieved 3 bounding boxes for template 1
+2025-04-23 11:13:03,069 - root - INFO - Retrieved 2 bounding boxes for template 2
+2025-04-23 11:13:03,071 - root - INFO - Retrieved 1 bounding boxes for template 3
+2025-04-23 11:13:03,072 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:13:03] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:13:03,123 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:13:03] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:14:58,795 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:14:58,805 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_template.py', reloading
+2025-04-23 11:14:58,976 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:14:59,634 - root - INFO - Database connection pool created successfully
+2025-04-23 11:14:59,638 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:14:59,639 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:14:59,651 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:14:59,656 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:15:05,627 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:15:05,627 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:15:05,756 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:15:06,457 - root - INFO - Database connection pool created successfully
+2025-04-23 11:15:06,463 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:06,463 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:06,474 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:15:06,480 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:15:15,506 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\bounding_box.py', reloading
+2025-04-23 11:15:15,507 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\bounding_box.py', reloading
+2025-04-23 11:15:15,606 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:15:16,280 - root - INFO - Database connection pool created successfully
+2025-04-23 11:15:16,285 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:16,286 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:16,300 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:15:16,307 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:15:56,831 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:15:56,841 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:15:56,842 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_template_dao.py', reloading
+2025-04-23 11:15:57,509 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:15:58,197 - root - INFO - Database connection pool created successfully
+2025-04-23 11:15:58,202 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:58,203 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:15:58,215 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:15:58,221 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:16:18,305 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:16:18,309 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:16:18,312 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\fraud_label_dao.py', reloading
+2025-04-23 11:16:19,381 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:16:19,970 - root - INFO - Database connection pool created successfully
+2025-04-23 11:16:19,975 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:16:19,975 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:16:19,988 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:16:19,993 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:16:55,368 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:16:55,381 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\dao\\bounding_box_dao.py', reloading
+2025-04-23 11:16:56,229 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:16:56,811 - root - INFO - Database connection pool created successfully
+2025-04-23 11:16:56,815 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:16:56,816 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:16:56,825 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:16:56,830 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:16:56,981 - root - INFO - Retrieved 3 templates with labels and bounding boxes
+2025-04-23 11:16:56,982 - root - ERROR - Error getting templates: 'FraudTemplateDAO' object has no attribute 'get_bounding_boxes'
+2025-04-23 11:16:56,996 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:16:56] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:17:04,984 - root - INFO - Retrieved 3 templates with labels and bounding boxes
+2025-04-23 11:17:04,985 - root - ERROR - Error getting templates: 'FraudTemplateDAO' object has no attribute 'get_bounding_boxes'
+2025-04-23 11:17:04,986 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:17:04] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:17:27,882 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:17:27,883 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:17:27,982 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:17:28,533 - root - INFO - Database connection pool created successfully
+2025-04-23 11:17:28,537 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:17:28,537 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:17:28,546 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:17:28,550 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:17:29,035 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:17:29,035 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 11:17:29,687 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:17:30,253 - root - INFO - Database connection pool created successfully
+2025-04-23 11:17:30,257 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:17:30,257 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:17:30,267 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:17:30,272 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:17:30,617 - root - INFO - Retrieved 3 templates with labels and bounding boxes
+2025-04-23 11:17:30,632 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:17:30] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 11:17:30,682 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 11:17:30] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 11:18:25,337 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:18:25,346 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:18:25,348 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:18:25,487 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 11:18:25,993 - root - INFO - Database connection pool created successfully
+2025-04-23 11:18:25,997 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:18:25,998 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 11:18:26,005 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 11:18:26,010 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 11:19:45,760 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:19:45,769 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:19:45,770 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\models\\fraud_label.py', reloading
+2025-04-23 11:19:46,331 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:08,575 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:08,585 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:08,586 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:08,624 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.11.215.128:5000
+2025-04-23 12:56:08,625 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-23 12:56:08,654 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:09,539 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:09,548 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:09,548 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:09,564 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:09,578 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:12,101 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:12] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-23 12:56:12,218 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:12] "GET /model-management HTTP/1.1" 200 -
+2025-04-23 12:56:14,254 - root - INFO - Retrieved 3 templates with labels and bounding boxes
+2025-04-23 12:56:14,269 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:14] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 12:56:14,398 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:14] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 12:56:14,504 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:14] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 12:56:21,128 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:21] "GET /model-management HTTP/1.1" 200 -
+2025-04-23 12:56:23,068 - root - INFO - Retrieved 3 templates with labels and bounding boxes
+2025-04-23 12:56:23,070 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:23] "GET /add-model HTTP/1.1" 200 -
+2025-04-23 12:56:23,190 - werkzeug - INFO - 127.0.0.1 - - [23/Apr/2025 12:56:23] "[33mGET /static/placeholder-camera.jpg HTTP/1.1[0m" 404 -
+2025-04-23 12:56:46,236 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:46,246 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:46,247 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:46,802 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:47,396 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:47,400 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:47,401 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:47,411 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:47,416 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:47,800 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:47,801 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:48,499 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:49,032 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:49,036 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:49,037 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:49,046 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:49,051 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:50,275 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:50,285 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:50,286 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:51,136 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:51,692 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:51,697 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:51,698 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:51,709 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:51,714 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:52,370 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:52,370 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:52,811 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:53,378 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:53,382 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:53,383 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:53,397 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:53,401 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:54,191 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:54,191 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:54,490 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:54,973 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:54,977 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:54,977 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:54,985 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:54,990 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:57,234 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:57,245 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:57,246 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:58,075 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:56:58,627 - root - INFO - Database connection pool created successfully
+2025-04-23 12:56:58,633 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:58,633 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:56:58,642 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:56:58,649 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:56:59,712 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:59,712 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:56:59,723 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:00,741 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:57:01,236 - root - INFO - Database connection pool created successfully
+2025-04-23 12:57:01,240 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:01,240 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:01,248 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:57:01,253 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:57:02,554 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:02,555 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:03,333 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:57:03,810 - root - INFO - Database connection pool created successfully
+2025-04-23 12:57:03,814 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:03,814 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:03,821 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:57:03,826 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:57:37,306 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:37,307 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:37,990 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2025-04-23 12:57:38,529 - root - INFO - Database connection pool created successfully
+2025-04-23 12:57:38,532 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:38,533 - root - ERROR - Error initializing database: 'charmap' codec can't decode byte 0x9d in position 3612: character maps to <undefined>
+2025-04-23 12:57:38,542 - werkzeug - WARNING -  * Debugger is active!
+2025-04-23 12:57:38,546 - werkzeug - INFO -  * Debugger PIN: 584-054-522
+2025-04-23 12:57:47,177 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:47,177 - werkzeug - INFO -  * Detected change in 'd:\\Ky2nam4\\Phantichthietkekientruchethong\\BTL\\app.py', reloading
+2025-04-23 12:57:47,646 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)

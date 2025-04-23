@@ -6,13 +6,15 @@ class FraudLabel:
         self.idLabel = idLabel
         self.description = description
         self.typeLabel = typeLabel
+        # No reference to template at all - relationship is managed in the database
 
     def to_dict(self):
         label_dict = {
             'idLabel': self.idLabel,
             'description': self.description,
-            'typeLabel': self.typeLabel.value if isinstance(self.typeLabel, TypeLabel) else self.typeLabel,
+            'typeLabel': self.typeLabel.value if isinstance(self.typeLabel, TypeLabel) else self.typeLabel
         }
+
         return label_dict
 
     @classmethod
@@ -28,5 +30,4 @@ class FraudLabel:
             except ValueError:
                 label.typeLabel = type_label
 
-        label.fraudTemplateId = data.get('fraudTemplateId')
         return label

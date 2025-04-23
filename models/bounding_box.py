@@ -1,7 +1,7 @@
 class BoundingBox:
     def __init__(self, idBox=None, xCenter=None, yCenter=None, width=None, height=None,
                  xPixel=None, yPixel=None, widthPixel=None, heightPixel=None,
-                 fraudTemplate=None, fraudLabel=None, fraudTemplateId=None, fraudLabelId=None):
+                 fraudTemplateId=None, fraudLabelId=None):
         self.idBox = idBox
         self.xCenter = xCenter
         self.yCenter = yCenter
@@ -11,8 +11,6 @@ class BoundingBox:
         self.yPixel = yPixel
         self.widthPixel = widthPixel
         self.heightPixel = heightPixel
-        self.fraudTemplate = fraudTemplate
-        self.fraudLabel = fraudLabel
         self.fraudTemplateId = fraudTemplateId
         self.fraudLabelId = fraudLabelId
 

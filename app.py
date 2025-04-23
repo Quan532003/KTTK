@@ -174,25 +174,21 @@ def recognition():
 def add_model():
     if request.method == 'POST':
         try:
-            # Lấy dữ liệu từ form
             model_name = request.form['model_name']
             model_type = request.form['model_type']
             version = request.form['version']
             description = request.form.get('description', '')
 
-            # Lấy các thông số huấn luyện
             epoch = int(request.form.get('epochs', Config.DEFAULT_EPOCH))
             batch_size = int(request.form.get(
                 'batch_size', Config.DEFAULT_BATCH_SIZE))
             learning_rate = float(request.form.get(
                 'learning_rate', Config.DEFAULT_LEARNING_RATE))
 
-            # Kiểm tra các trường bắt buộc
             if not model_name or not model_type or not version:
                 flash("Vui lòng điền đầy đủ thông tin bắt buộc.", "danger")
                 return redirect(url_for('add_model'))
 
-            # Kiểm tra xem mô hình đã tồn tại chưa
             existing_models = model_dao.get_all()
             for model in existing_models:
                 if model.modelName == model_name and model.version == version:
@@ -200,7 +196,6 @@ def add_model():
                         f"Mô hình {model_name} phiên bản {version} đã tồn tại.", "danger")
                     return redirect(url_for('add_model'))
 
-            # Xử lý tải lên file
             model_path = None
             config_path = None
 
@@ -220,17 +215,14 @@ def add_model():
                         Config.UPLOAD_FOLDER, config_filename)
                     config_file.save(config_path)
 
-            # Tạo đối tượng TrainInfo
             train_info = TrainInfo(
                 epoch=epoch,
                 learningRate=learning_rate,
                 batchSize=batch_size,
                 accuracy=float(request.form.get('accuracy', 0)),
                 timeTrain=datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                trainDuration=0  # Sẽ cập nhật sau khi huấn luyện
+                trainDuration=0
             )
-
-            # Tạo đối tượng Model
             model = Model(
                 modelName=model_name,
                 modelType=model_type,
@@ -239,11 +231,7 @@ def add_model():
                 lastUpdate=datetime.now(),
                 trainInfo=train_info
             )
-
-            # Lưu vào database
             model_id = model_dao.create(model)
-
-            # Lưu mối quan hệ với FraudTemplate
             sample_images = request.form.getlist('sample_images[]')
             if sample_images:
                 for image_id in sample_images:
@@ -263,12 +251,26 @@ def add_model():
             logging.error(f"Error in add_model route: {str(e)}")
             flash(f"Lỗi: {str(e)}", "danger")
 
-    templates = fraud_template_dao.get_all()
-    templates_dict = [template.to_dict() for template in templates]
-    print(templates_dict)
+    # Lấy tất cả các templates cùng với nhãn và bounding boxes
+    try:
+        templates = fraud_template_dao.get_all()
+
+        # Chuyển đổi templates thành dạng dict để gửi đến template
+        templates_dict = []
+        for template in templates:
+            template_dict = template.to_dict()
+            templates_dict.append(template_dict)
+
+    except Exception as e:
+        logging.error(f"Error getting templates: {str(e)}")
+        templates_dict = []
+
+    # Lấy tất cả các loại mô hình
+    model_types = ModelType.get_all_values()
+
     return render_template('add_model.html',
                            sample_images=templates_dict,
-                           model_types=ModelType.get_all_values(),
+                           model_types=model_types,
                            active_page='model_management')
 
 
