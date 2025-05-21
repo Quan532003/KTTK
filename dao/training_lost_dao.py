@@ -4,20 +4,10 @@ from models.training_lost import TrainingLost
 
 
 class TrainingLostDAO:
-    """
-    Data Access Object cho đối tượng TrainingLost
-    """
-
     def __init__(self):
         self.db_util = DatabaseUtil()
 
     def get_all(self):
-        """
-        Lấy tất cả các thông tin mất mát trong quá trình huấn luyện
-
-        Returns:
-            list: Danh sách các đối tượng TrainingLost
-        """
         try:
             query = "SELECT * FROM TrainingLost"
 
@@ -39,15 +29,6 @@ class TrainingLostDAO:
             raise
 
     def get_by_id(self, training_lost_id):
-        """
-        Lấy thông tin mất mát theo ID
-
-        Args:
-            training_lost_id (int): ID của thông tin mất mát
-
-        Returns:
-            TrainingLost: Đối tượng TrainingLost tương ứng hoặc None nếu không tìm thấy
-        """
         try:
             query = "SELECT * FROM TrainingLost WHERE idTrainingLost = %s"
 
@@ -70,15 +51,6 @@ class TrainingLostDAO:
             raise
 
     def get_by_train_info_id(self, train_info_id):
-        """
-        Lấy tất cả các thông tin mất mát theo TrainInfo ID
-
-        Args:
-            train_info_id (int): ID của TrainInfo
-
-        Returns:
-            list: Danh sách các đối tượng TrainingLost
-        """
         try:
             query = "SELECT * FROM TrainingLost WHERE trainInfoId = %s ORDER BY epoch"
 
@@ -102,15 +74,6 @@ class TrainingLostDAO:
             raise
 
     def create(self, training_lost):
-        """
-        Tạo thông tin mất mát mới
-
-        Args:
-            training_lost (TrainingLost): Đối tượng TrainingLost cần tạo
-
-        Returns:
-            int: ID của thông tin mất mát vừa tạo
-        """
         try:
             query = """
                 INSERT INTO TrainingLost (epoch, lost, trainInfoId)
@@ -132,15 +95,6 @@ class TrainingLostDAO:
             raise
 
     def update(self, training_lost):
-        """
-        Cập nhật thông tin mất mát
-
-        Args:
-            training_lost (TrainingLost): Đối tượng TrainingLost cần cập nhật
-
-        Returns:
-            bool: True nếu cập nhật thành công, False nếu không
-        """
         try:
             query = """
                 UPDATE TrainingLost
@@ -163,15 +117,6 @@ class TrainingLostDAO:
             raise
 
     def delete(self, training_lost_id):
-        """
-        Xóa thông tin mất mát theo ID
-
-        Args:
-            training_lost_id (int): ID của thông tin mất mát cần xóa
-
-        Returns:
-            bool: True nếu xóa thành công, False nếu không
-        """
         try:
             query = "DELETE FROM TrainingLost WHERE idTrainingLost = %s"
             self.db_util.execute_query(query, (training_lost_id,), commit=True)
@@ -182,15 +127,6 @@ class TrainingLostDAO:
             raise
 
     def delete_by_train_info_id(self, train_info_id):
-        """
-        Xóa tất cả các thông tin mất mát theo TrainInfo ID
-
-        Args:
-            train_info_id (int): ID của TrainInfo
-
-        Returns:
-            bool: True nếu xóa thành công, False nếu không
-        """
         try:
             query = "DELETE FROM TrainingLost WHERE trainInfoId = %s"
             self.db_util.execute_query(query, (train_info_id,), commit=True)

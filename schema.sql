@@ -114,11 +114,11 @@ INSERT INTO Model (modelName, modelType, version, description, lastUpdate, train
 VALUES ('YOLOv8-Person', 'HumanDetection', 'v1.0.0', 'Model để phát hiện người', '2025-04-20 10:15:00', 1);
 
 -- Thêm vào bảng TrainingLost
-INSERT INTO TrainingLost (epoch, lost, trainInfoId) 
+INSERT INTO TrainingLost (epoch, lost, trainInfoId)
 VALUES (1, 0.7, 1), (50, 0.3, 1), (100, 0.12, 1);
 
 -- Thêm vào bảng FraudTemplate
-INSERT INTO FraudTemplate (description, imageUrl, timeUpdate) 
+INSERT INTO FraudTemplate (description, imageUrl, timeUpdate)
 VALUES ('Mẫu người', '/static/placeholder-camera.jpg', '2025-04-15 14:30:00'),
        ('Mẫu xe ô tô', '/static/placeholder-camera.jpg', '2025-04-16 09:00:00'),
        ('Mẫu xe đạp', '/static/placeholder-camera.jpg', '2025-04-17 10:30:00');

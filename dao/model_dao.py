@@ -6,20 +6,10 @@ from datetime import datetime
 
 
 class ModelDAO:
-    """
-    Data Access Object cho đối tượng Model
-    """
-
     def __init__(self):
         self.db_util = DatabaseUtil()
 
     def get_all(self):
-        """
-        Lấy tất cả các mô hình
-
-        Returns:
-            list: Danh sách các đối tượng Model
-        """
         try:
             query = """
                 SELECT m.*, ti.idInfo AS trainInfoId
@@ -117,7 +107,6 @@ class ModelDAO:
                 last_update,
                 trainInfoId
             )
-
             model_id = self.db_util.execute_query(query, params, commit=True)
 
             return model_id
@@ -126,15 +115,6 @@ class ModelDAO:
             raise
 
     def update(self, model):
-        """
-        Cập nhật thông tin mô hình
-
-        Args:
-            model (Model): Đối tượng Model cần cập nhật
-
-        Returns:
-            bool: True nếu cập nhật thành công, False nếu không
-        """
         try:
             # Kiểm tra TrainInfo
             trainInfoId = None
@@ -183,15 +163,6 @@ class ModelDAO:
             raise
 
     def delete(self, model_id):
-        """
-        Xóa mô hình theo ID
-
-        Args:
-            model_id (int): ID của mô hình cần xóa
-
-        Returns:
-            bool: True nếu xóa thành công, False nếu không
-        """
         try:
             # Lấy thông tin mô hình trước khi xóa
             model = self.get_by_id(model_id)
@@ -214,15 +185,6 @@ class ModelDAO:
             raise
 
     def get_fraud_templates(self, model_id):
-        """
-        Lấy danh sách các FraudTemplate liên quan đến mô hình
-
-        Args:
-            model_id (int): ID của mô hình
-
-        Returns:
-            list: Danh sách các đối tượng FraudTemplate
-        """
         try:
             query = """
                 SELECT ft.*

@@ -4,20 +4,10 @@ from models.train_info import TrainInfo
 
 
 class TrainInfoDAO:
-    """
-    Data Access Object cho đối tượng TrainInfo
-    """
-
     def __init__(self):
         self.db_util = DatabaseUtil()
 
     def get_all(self):
-        """
-        Lấy tất cả các thông tin huấn luyện
-
-        Returns:
-            list: Danh sách các đối tượng TrainInfo
-        """
         try:
             query = "SELECT * FROM TrainInfo"
 
@@ -51,15 +41,6 @@ class TrainInfoDAO:
             raise
 
     def get_by_id(self, train_info_id):
-        """
-        Lấy thông tin huấn luyện theo ID
-
-        Args:
-            train_info_id (int): ID của thông tin huấn luyện
-
-        Returns:
-            TrainInfo: Đối tượng TrainInfo tương ứng hoặc None nếu không tìm thấy
-        """
         try:
             query = "SELECT * FROM TrainInfo WHERE idInfo = %s"
 
@@ -93,21 +74,11 @@ class TrainInfoDAO:
             raise
 
     def create(self, train_info):
-        """
-        Tạo thông tin huấn luyện mới
-
-        Args:
-            train_info (TrainInfo): Đối tượng TrainInfo cần tạo
-
-        Returns:
-            int: ID của thông tin huấn luyện vừa tạo
-        """
         try:
             query = """
                 INSERT INTO TrainInfo (epoch, learningRate, batchSize, mae, mse, trainDuration, accuracy, timeTrain)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
             """
-
             params = (
                 train_info.epoch,
                 train_info.learningRate,
@@ -137,15 +108,6 @@ class TrainInfoDAO:
             raise
 
     def update(self, train_info):
-        """
-        Cập nhật thông tin huấn luyện
-
-        Args:
-            train_info (TrainInfo): Đối tượng TrainInfo cần cập nhật
-
-        Returns:
-            bool: True nếu cập nhật thành công, False nếu không
-        """
         try:
             query = """
                 UPDATE TrainInfo
@@ -187,15 +149,6 @@ class TrainInfoDAO:
             raise
 
     def delete(self, train_info_id):
-        """
-        Xóa thông tin huấn luyện theo ID
-
-        Args:
-            train_info_id (int): ID của thông tin huấn luyện cần xóa
-
-        Returns:
-            bool: True nếu xóa thành công, False nếu không
-        """
         try:
             # Xóa tất cả các TrainingLost liên quan
             from dao.training_lost_dao import TrainingLostDAO

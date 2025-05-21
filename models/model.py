@@ -4,24 +4,8 @@ from .train_info import TrainInfo
 
 
 class Model:
-    """
-    Đại diện cho một mô hình YOLO
-    """
-
     def __init__(self, idModel=None, modelName=None, modelType=None, version=None,
                  description=None, lastUpdate=None, trainInfo=None):
-        """
-        Khởi tạo một đối tượng Model mới
-
-        Args:
-            idModel (int, optional): ID của mô hình
-            modelName (str, optional): Tên của mô hình
-            modelType (ModelType, optional): Loại mô hình
-            version (str, optional): Phiên bản mô hình
-            description (str, optional): Mô tả về mô hình
-            lastUpdate (datetime, optional): Thời gian cập nhật cuối cùng
-            trainInfo (TrainInfo, optional): Thông tin huấn luyện
-        """
         self.idModel = idModel
         self.modelName = modelName
         self.modelType = modelType
@@ -31,32 +15,12 @@ class Model:
         self.trainInfo = trainInfo
 
     def get_fraud_templates(self):
-        """
-        Lấy danh sách các fraud template liên quan đến mô hình
-
-        Returns:
-            list: Danh sách các FraudTemplate
-        """
-        # Phương thức này sẽ được thực hiện bởi DAO
         pass
 
     def get_train_info(self):
-        """
-        Lấy thông tin huấn luyện của mô hình
-
-        Returns:
-            TrainInfo: Đối tượng TrainInfo liên kết với mô hình
-        """
-        # Phương thức này sẽ được thực hiện bởi DAO
         return self.trainInfo
 
     def to_dict(self):
-        """
-        Chuyển đổi đối tượng thành dictionary
-
-        Returns:
-            dict: Dictionary chứa thông tin của đối tượng
-        """
         model_dict = {
             'idModel': self.idModel,
             'modelName': self.modelName,
@@ -75,15 +39,6 @@ class Model:
 
     @classmethod
     def from_dict(cls, data):
-        """
-        Tạo đối tượng từ dictionary
-
-        Args:
-            data (dict): Dictionary chứa thông tin đối tượng
-
-        Returns:
-            Model: Đối tượng Model mới
-        """
         model = cls()
 
         model.idModel = data.get('idModel')

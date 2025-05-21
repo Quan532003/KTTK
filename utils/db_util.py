@@ -118,8 +118,8 @@ class DatabaseUtil:
         conn = None
         cursor = None
         try:
-            # Đọc file schema
-            with open(schema_file, 'r') as f:
+            # Đọc file schema với encoding UTF-8
+            with open(schema_file, 'r', encoding='utf-8') as f:
                 schema = f.read()
 
             # Tách các câu lệnh SQL

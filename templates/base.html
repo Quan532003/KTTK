@@ -25,7 +25,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: var(--dark-color);
-            overflow-x: hidden; /* Ngăn cuộn ngang */
+            overflow-x: hidden;
         }
         
         .sidebar {
@@ -34,7 +34,7 @@
             height: 100vh;
             position: fixed;
             padding-top: 20px;
-            width: 250px; /* Đặt cố định chiều rộng */
+            width: 250px;
             left: 0;
             z-index: 100;
         }
@@ -60,9 +60,9 @@
         }
         
         .content {
-            margin-left: 250px; /* Phải khớp với chiều rộng sidebar */
+            margin-left: 250px;
             padding: 30px;
-            width: calc(100% - 250px); /* Đảm bảo không bị tràn */
+            width: calc(100% - 250px);
         }
         
         .card {
@@ -133,24 +133,20 @@
             color: var(--primary-color);
         }
         
-        /* Form styles */
         .form-control:focus {
             border-color: var(--primary-color);
             box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
         }
         
-        /* Alert styles */
         .alert {
             border-radius: 8px;
         }
         
-        /* Badge styles */
         .badge {
             padding: 5px 10px;
             border-radius: 30px;
         }
         
-        /* Progress bar styles */
         .progress {
             height: 10px;
             border-radius: 5px;
@@ -170,14 +166,13 @@
             margin: 0;
         }
         
-        /* Fix cho giao diện bị dính */
         .table-responsive {
             overflow-x: auto;
         }
         
         .table {
             width: 100%;
-            min-width: 800px; /* Đảm bảo bảng không bị nén quá */
+            min-width: 800px;
         }
         
         .container-fluid {
@@ -204,7 +199,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if active_page == 'statistics' %}active{% endif %}" href="{{ url_for('statistics') }}">
+                        <a class="nav-link {% if active_page == 'statistics' %}active{% endif %}" href="">
                             <i class="fas fa-chart-bar"></i> Thống kê
                         </a>
                     </li>

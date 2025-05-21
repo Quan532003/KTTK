@@ -1,456 +1,247 @@
-{% extends 'base.html' %}
-
-{% block title %}Nhận dạng{% endblock %}
-
-{% block extra_css %}
+{% extends 'base.html' %} {% block title %}Nhận dạng{% endblock %} {% block
+extra_css %}
 <style>
-    .recognition-card {
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        height: 100%;
+  .detection-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .camera-container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1; /* Giữ tỷ lệ 1:1 cho 640x640 */
+  }
+
+  #cameraFeed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #detectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Cho phép click qua canvas */
+    z-index: 2; /* Đảm bảo canvas hiển thị trên video */
+  }
+
+  .detection-controls {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .option-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+  }
+
+  .option-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .option-card.camera {
+    background-color: rgba(231, 246, 255, 0.6);
+  }
+
+  .option-card.video {
+    background-color: rgba(255, 246, 231, 0.6);
+  }
+
+  .option-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #007bff;
+  }
+
+  .detection-results {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .result-item {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .detection-status {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+
+  .status-running {
+    background-color: #d4edda;
+    color: #155724;
+    animation: pulse 2s infinite;
+  }
+
+  .status-stopped {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .badge-label {
+    margin-right: 5px;
+  }
+
+  .detection-metrics {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .metric-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .metric-value {
+    font-weight: 600;
+    color: #0056b3;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
     }
-    
-    .recognition-card:hover {
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        transform: translateY(-10px);
+    70% {
+      box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
     }
-    
-    .recognition-icon {
-        font-size: 5rem;
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
+    100% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
     }
-    
-    .recognition-option {
-        padding: 3rem 1.5rem;
-        text-align: center;
-    }
-    
-    .model-selector {
-        margin: 2rem 0;
-        padding: 1.5rem;
-        border-radius: 10px;
-        background-color: #f8f9fa;
-        border: 1px solid #e9ecef;
-    }
-    
-    .result-panel {
-        display: none;
-        margin-top: 2rem;
-    }
-    
-    .camera-feed, .video-player {
-        width: 100%;
-        max-width: 640px;
-        height: 480px;
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .detection-result {
-        margin-top: 1.5rem;
-    }
-    
-    .confidence-bar {
-        height: 10px;
-        border-radius: 5px;
-        background-color: #e9ecef;
-        overflow: hidden;
-        margin-top: 0.5rem;
-    }
-    
-    .confidence-level {
-        height: 100%;
-        background-color: var(--success-color);
-    }
-    
-    .result-item {
-        padding: 1rem;
-        border-radius: 5px;
-        background-color: #f8f9fa;
-        margin-bottom: 0.5rem;
-        display: flex;
-        align-items: center;
-    }
-    
-    .result-icon {
-        font-size: 1.5rem;
-        margin-right: 1rem;
-    }
-    
-    .btn-lg {
-        padding: 1rem 2rem;
-        font-size: 1.2rem;
-    }
-    
-    .recognition-actions {
-        margin-top: 2rem;
-    }
+  }
 </style>
-{% endblock %}
-
-{% block content %}
+{% endblock %} {% block content %}
 <div class="header-container">
-    <h1 class="page-title">Nhận dạng</h1>
+  <h1 class="page-title">Phát hiện hành vi gian lận</h1>
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="card recognition-card">
-            <div class="card-body recognition-option">
-                <i class="fas fa-camera recognition-icon"></i>
-                <h3 class="card-title">Nhận dạng qua Camera</h3>
-                <p class="card-text">Sử dụng camera để phát hiện người trong thời gian thực</p>
-                <a href="{{ url_for('recognize_camera') }}" class="btn btn-primary btn-lg">
-                    <i class="fas fa-camera"></i> Bắt đầu
-                </a>
-            </div>
-        </div>
+<!-- Options Section -->
+<div class="row" id="optionsSection">
+  <div class="col-md-6">
+    <div class="option-card camera text-center">
+      <i class="fas fa-camera option-icon"></i>
+      <h3>Phát hiện qua camera</h3>
+      <p>Sử dụng camera để phát hiện hành vi gian lận trong thời gian thực</p>
+      <button id="startCameraBtn" class="btn btn-primary">
+        <i class="fas fa-camera"></i> Bắt đầu nhận diện
+      </button>
     </div>
-    
-    <div class="col-md-6">
-        <div class="card recognition-card">
-            <div class="card-body recognition-option">
-                <i class="fas fa-film recognition-icon"></i>
-                <h3 class="card-title">Nhận dạng qua Video</h3>
-                <p class="card-text">Tải lên video để phát hiện và nhận dạng người</p>
-                <a href="{{ url_for('recognize_video') }}" class="btn btn-primary btn-lg">
-                    <i class="fas fa-upload"></i> Tải lên Video
-                </a>
-            </div>
-        </div>
+  </div>
+  <div class="col-md-6">
+    <div class="option-card video text-center">
+      <i class="fas fa-film option-icon"></i>
+      <h3>Phát hiện qua video</h3>
+      <p>Tải lên video để phát hiện hành vi gian lận</p>
+      <button id="startVideoBtn" class="btn btn-primary">
+        <i class="fas fa-upload"></i> Tải lên video
+      </button>
     </div>
+  </div>
 </div>
 
-<!-- Model Selector Panel -->
-<div class="card model-selector mt-4">
-    <div class="card-header">
-        <i class="fas fa-cog"></i> Cấu hình nhận dạng
-    </div>
-    <div class="card-body">
-        <div class="row">
+<!-- Detection Section -->
+<div id="detectionSection" style="display: none">
+  <div class="detection-container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="camera-container">
+          <video id="cameraFeed" autoplay playsinline></video>
+          <canvas id="detectionCanvas"></canvas>
+        </div>
+        <div class="detection-controls">
+          <div class="row mb-3">
             <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="modelSelect" class="form-label">Chọn mô hình</label>
-                    <select class="form-select" id="modelSelect">
-                        {%for model in models%}
-                        <option value={{model.idModel}}>{{model.modelType}}_{{model.version}}</option>
-                        {%endfor%}
-                    </select>
-                </div>
+              <div class="form-group">
+                <label for="modelSelect"
+                  ><i class="fas fa-brain"></i> Chọn mô hình</label
+                >
+                <select class="form-control" id="modelSelect">
+                  {% for model in models %}
+                  <option value="{{ model.idModel }}">
+                    {{ model.modelName }} ({{ model.version }})
+                  </option>
+                  {% endfor %}
+                </select>
+                <small class="form-text text-muted"></small>
+              </div>
             </div>
-            
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="confidenceThreshold" class="form-label">Ngưỡng phát hiện: <span id="confidenceValue">0.5</span></label>
-                    <input type="range" class="form-range" min="0.1" max="0.9" step="0.05" value="0.5" id="confidenceThreshold">
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="enableTracking" checked>
-                        <label class="form-check-label" for="enableTracking">Theo dõi đối tượng</label>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="showLabels" checked>
-                        <label class="form-check-label" for="showLabels">Hiển thị nhãn</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+          </div>
 
-<!-- Camera Result Panel (Giả lập) -->
-<div class="card result-panel" id="cameraResultPanel">
-    <div class="card-header">
-        <i class="fas fa-camera"></i> Nhận dạng qua Camera
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="camera-feed" id="cameraFeed">
-                    <i class="fas fa-camera fa-3x text-muted"></i>
-                    <p class="text-muted">Camera chưa được kích hoạt</p>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <h5>Kết quả nhận dạng</h5>
-                <div class="detection-result">
-                    <div class="result-item">
-                        <i class="fas fa-user result-icon text-primary"></i>
-                        <div class="flex-grow-1">
-                            <div class="d-flex justify-content-between">
-                                <div>Person</div>
-                                <div>85%</div>
-                            </div>
-                            <div class="confidence-bar">
-                                <div class="confidence-level" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <button id="startDetectBtn" class="btn btn-success mr-2">
+            <i class="fas fa-play"></i> Bắt đầu
+          </button>
+          <button id="stopDetectBtn" class="btn btn-danger mr-2" disabled>
+            <i class="fas fa-stop"></i> Dừng
+          </button>
+          <button id="backBtn" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Quay lại
+          </button>
         </div>
-        
-        <div class="recognition-actions text-center">
-            <button class="btn btn-danger me-2">
-                <i class="fas fa-stop"></i> Dừng
-            </button>
-            <button class="btn btn-success">
-                <i class="fas fa-camera"></i> Chụp ảnh
-            </button>
-        </div>
-    </div>
-</div>
 
-<!-- Video Result Panel (Giả lập) -->
-<div class="card result-panel" id="videoResultPanel">
-    <div class="card-header">
-        <i class="fas fa-film"></i> Nhận dạng qua Video
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="video-player" id="videoPlayer">
-                    <i class="fas fa-film fa-3x text-muted"></i>
-                    <p class="text-muted">Chưa có video nào được tải lên</p>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <h5>Kết quả nhận dạng</h5>
-                <div class="detection-result">
-                    <div class="result-item">
-                        <i class="fas fa-user result-icon text-primary"></i>
-                        <div class="flex-grow-1">
-                            <div class="d-flex justify-content-between">
-                                <div>Person</div>
-                                <div>92%</div>
-                            </div>
-                            <div class="confidence-bar">
-                                <div class="confidence-level" style="width: 92%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-item">
-                        <i class="fas fa-user result-icon text-success"></i>
-                        <div class="flex-grow-1">
-                            <div class="d-flex justify-content-between">
-                                <div>Person</div>
-                                <div>88%</div>
-                            </div>
-                            <div class="confidence-bar">
-                                <div class="confidence-level" style="width: 88%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="detection-status" id="detectionStatus">
+          Trạng thái: Đang chờ
         </div>
-        
-        <div class="recognition-actions text-center">
-            <button class="btn btn-secondary me-2">
-                <i class="fas fa-pause"></i> Tạm dừng
-            </button>
-            <button class="btn btn-danger me-2">
-                <i class="fas fa-stop"></i> Dừng
-            </button>
-            <button class="btn btn-success">
-                <i class="fas fa-save"></i> Lưu kết quả
-            </button>
-        </div>
-    </div>
-</div>
-{% endblock %}
+      </div>
 
-{% block extra_js %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Cập nhật giá trị ngưỡng khi thay đổi
-        const confidenceThreshold = document.getElementById('confidenceThreshold');
-        const confidenceValue = document.getElementById('confidenceValue');
-        
-        confidenceThreshold.addEventListener('input', function() {
-            confidenceValue.textContent = this.value;
-        });
-        
-        // Kiểm tra nếu có flash message về camera hoặc video
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('mode')) {
-            const mode = urlParams.get('mode');
-            if (mode === 'camera') {
-                document.getElementById('cameraResultPanel').style.display = 'block';
-            } else if (mode === 'video') {
-                document.getElementById('videoResultPanel').style.display = 'block';
-            }
-        }
-        
-        // Xử lý nút nhận dạng qua camera
-        document.querySelector('a[href="{{ url_for("recognize_camera") }}"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('cameraResultPanel').style.display = 'block';
-            document.getElementById('videoResultPanel').style.display = 'none';
-            
-            // Giả lập kích hoạt camera
-            const cameraFeed = document.getElementById('cameraFeed');
-            cameraFeed.innerHTML = `
-                <div class="text-center">
-                    <div class="spinner-border text-primary mb-3" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p>Đang kích hoạt camera...</p>
-                </div>
-            `;
-            
-            // Giả lập thời gian tải
-            setTimeout(() => {
-                cameraFeed.innerHTML = `
-                    <img src="/static/placeholder-camera.jpg" alt="Camera Feed" style="max-width: 100%; height: auto;">
-                `;
-            }, 1500);
-            
-            // Thêm query parameter để lưu trạng thái
-            history.pushState(null, '', '{{ url_for("recognition") }}?mode=camera');
-        });
-        
-        // Xử lý nút nhận dạng qua video
-        document.querySelector('a[href="{{ url_for("recognize_video") }}"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('videoResultPanel').style.display = 'block';
-            document.getElementById('cameraResultPanel').style.display = 'none';
-            
-            // Mở hộp thoại tải lên
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.accept = 'video/*';
-            fileInput.click();
-            
-            fileInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const videoPlayer = document.getElementById('videoPlayer');
-                    videoPlayer.innerHTML = `
-                        <div class="text-center">
-                            <div class="spinner-border text-primary mb-3" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <p>Đang xử lý video...</p>
-                        </div>
-                    `;
-                    
-                    // Giả lập thời gian tải
-                    setTimeout(() => {
-                        videoPlayer.innerHTML = `
-                            <img src="/static/placeholder-video.jpg" alt="Video Player" style="max-width: 100%; height: auto;">
-                        `;
-                    }, 2000);
-                    
-                    // Thêm query parameter để lưu trạng thái
-                    history.pushState(null, '', '{{ url_for("recognition") }}?mode=video');
-                }
-            });
-        });
-        
-        // Xử lý nút dừng camera
-        document.querySelector('#cameraResultPanel .btn-danger').addEventListener('click', function() {
-            document.getElementById('cameraResultPanel').style.display = 'none';
-            history.pushState(null, '', '{{ url_for("recognition") }}');
-        });
-        
-        // Xử lý nút chụp ảnh
-        document.querySelector('#cameraResultPanel .btn-success').addEventListener('click', function() {
-            alert('Đã chụp ảnh và lưu kết quả nhận dạng!');
-        });
-        
-        // Xử lý các nút của video player
-        const videoBtns = document.querySelectorAll('#videoResultPanel .btn');
-        
-        // Nút tạm dừng
-        videoBtns[0].addEventListener('click', function() {
-            this.innerHTML = this.innerHTML.includes('fa-pause') 
-                ? '<i class="fas fa-play"></i> Tiếp tục'
-                : '<i class="fas fa-pause"></i> Tạm dừng';
-        });
-        
-        // Nút dừng
-        videoBtns[1].addEventListener('click', function() {
-            document.getElementById('videoResultPanel').style.display = 'none';
-            history.pushState(null, '', '{{ url_for("recognition") }}');
-        });
-        
-        // Nút lưu kết quả
-        videoBtns[2].addEventListener('click', function() {
-            alert('Đã lưu kết quả nhận dạng!');
-        });
-        
-        // Xử lý thay đổi mô hình
-        document.getElementById('modelSelect').addEventListener('change', function() {
-            // Giả lập thay đổi mô hình - Có thể thêm code xử lý thực tế ở đây
-            console.log('Đã chọn mô hình:', this.value);
-        });
-        
-        // Tạo hàm giả lập cập nhật kết quả nhận dạng
-        function simulateDetectionResults() {
-            // Tạo kết quả giả lập
-            const objects = [
-                { label: 'Person', confidence: Math.random() * 0.3 + 0.7 },
-                { label: 'Person', confidence: Math.random() * 0.3 + 0.6 }
-            ];
-            
-            // Cập nhật UI với kết quả giả lập
-            const detectionResult = document.querySelector('#cameraResultPanel .detection-result');
-            detectionResult.innerHTML = '';
-            
-            objects.forEach(obj => {
-                const confidence = Math.round(obj.confidence * 100);
-                const resultItem = document.createElement('div');
-                resultItem.className = 'result-item';
-                resultItem.innerHTML = `
-                    <i class="fas fa-user result-icon text-primary"></i>
-                    <div class="flex-grow-1">
-                        <div class="d-flex justify-content-between">
-                            <div>${obj.label}</div>
-                            <div>${confidence}%</div>
-                        </div>
-                        <div class="confidence-bar">
-                            <div class="confidence-level" style="width: ${confidence}%;"></div>
-                        </div>
-                    </div>
-                `;
-                detectionResult.appendChild(resultItem);
-            });
-        }
-        
-        // Giả lập cập nhật kết quả nhận dạng theo định kỳ khi camera hoạt động
-        let detectionInterval;
-        const startDetectionSimulation = () => {
-            // Xóa interval cũ nếu có
-            if (detectionInterval) clearInterval(detectionInterval);
-            
-            // Tạo interval mới
-            detectionInterval = setInterval(simulateDetectionResults, 2000);
-        };
-        
-        // Bắt đầu giả lập khi click vào nút camera
-        document.querySelector('a[href="{{ url_for("recognize_camera") }}"]').addEventListener('click', function() {
-            setTimeout(startDetectionSimulation, 2000);
-        });
-    });
-</script>
+      <div class="col-md-4">
+        <div class="detection-metrics">
+          <h5><i class="fas fa-chart-line"></i> Thông số phát hiện</h5>
+          <div class="metric-item">
+            <span>Thời gian phát hiện:</span>
+            <span class="metric-value" id="detectionTime">00:00</span>
+          </div>
+          <div class="metric-item">
+            <span>Số lần phát hiện:</span>
+            <span class="metric-value" id="detectionCount">0</span>
+          </div>
+          <div class="metric-item">
+            <span>Số đối tượng phát hiện:</span>
+            <span class="metric-value" id="objectCount">0</span>
+          </div>
+        </div>
+
+        <h5><i class="fas fa-list"></i> Kết quả phát hiện gần đây</h5>
+        <div class="detection-results" id="resultsList">
+          <!-- Detection results will be added here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{{ url_for('static', filename='js/detection.js') }}"></script>
 {% endblock %}
